@@ -611,7 +611,7 @@ def search_for_devices(request: Request, freshscan: str = "1"):
             logger.info(f"Checking devices on interface assigned with IP: {interface}")
             try:
                 devices = broadlink.discover(
-                    timeout=5, local_ip_address=interface, discover_ip_address="255.255.255.255")
+                    timeout=5, local_ip_address=interface, discover_ip_address="172.16.255.104")
                 for device in devices:
                     if device.auth():
                         mac_address = ''.join(format(x, '02x') for x in device.mac)
